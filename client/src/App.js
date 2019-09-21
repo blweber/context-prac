@@ -6,23 +6,30 @@ import Three45 from "./pages/Three45";
 import AdHoc from "./pages/AdHoc";
 import PageNotFound from "./pages/PageNotFound";
 import "./App.css";
-import Layout from "./components/Layout";
-import { Navigationbar } from "./components/NavigationBar";
-import Footer from "./components/Footer";
 
-function App() {
+import { Navigationbar } from "./components/layouts/NavigationBar";
+import Footer from "./components/layouts/Footer";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import Sidebar from "./components/layouts/Sidebar";
+import Layout from "./components/layouts/Layout";
+
+const App = () => {
   return (
     <Fragment>
       <Router>
         <Navigationbar />
+        <Sidebar />
         <Layout>
           <div>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/Three33" component={Three33} />
-              <Route path="/Three45" component={Three45} />
-              <Route path="/AdHoc" component={AdHoc} />
-              <PageNotFound />
+              <Route exact path="/Three33" component={Three33} />
+              <Route exact path="/Three45" component={Three45} />
+              <Route exact path="/AdHoc" component={AdHoc} />
+              <Route exact path="/Register" component={Register} />
+              <Route exact path="/Login" component={Login} />
+              <Route path="/" component={PageNotFound} />
             </Switch>
           </div>
         </Layout>
@@ -30,6 +37,6 @@ function App() {
       </Router>
     </Fragment>
   );
-}
+};
 
 export default App;
