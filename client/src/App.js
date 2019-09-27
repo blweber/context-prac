@@ -6,36 +6,38 @@ import Three45 from "./pages/Three45";
 import AdHoc from "./pages/AdHoc";
 import PageNotFound from "./pages/PageNotFound";
 import "./App.css";
-
-import { Navigationbar } from "./components/layouts/NavigationBar";
-import Footer from "./components/layouts/Footer";
-import Register from "./components/auth/Register";
+import Layout from "../src/layouts/Layout";
+import { Navigationbar } from "./layouts/NavigationBar";
+import Footer from "./layouts/Footer";
+import ContactForm from "./components/contacts/ContactForm";
 import Login from "./components/auth/Login";
-import Sidebar from "./components/layouts/Sidebar";
-import Layout from "./components/layouts/Layout";
+import Sidebar from "./layouts/Sidebar";
+import ContactState from "./context/contact/ContactState";
 
 const App = () => {
   return (
-    <Fragment>
-      <Router>
-        <Navigationbar />
-        <Sidebar />
-        <Layout>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/Three33" component={Three33} />
-              <Route exact path="/Three45" component={Three45} />
-              <Route exact path="/AdHoc" component={AdHoc} />
-              <Route exact path="/Register" component={Register} />
-              <Route exact path="/Login" component={Login} />
-              <Route path="/" component={PageNotFound} />
-            </Switch>
-          </div>
-        </Layout>
-        <Footer />
-      </Router>
-    </Fragment>
+    <ContactState>
+      <Fragment>
+        <Router>
+          <Navigationbar />
+          <Sidebar />
+          <Layout>
+            <div>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/Three33" component={Three33} />
+                <Route exact path="/Three45" component={Three45} />
+                <Route exact path="/AdHoc" component={AdHoc} />
+                <Route exact path="/ContactForm" component={ContactForm} />
+                <Route exact path="/Login" component={Login} />
+                <Route path="/" component={PageNotFound} />
+              </Switch>
+            </div>
+          </Layout>
+          <Footer />
+        </Router>
+      </Fragment>
+    </ContactState>
   );
 };
 
