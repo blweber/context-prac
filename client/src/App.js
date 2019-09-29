@@ -11,6 +11,7 @@ import { Navigationbar } from "./layouts/NavigationBar";
 import Footer from "./layouts/Footer";
 import ContactForm from "./components/contacts/ContactForm";
 import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import Sidebar from "./layouts/Sidebar";
 import ContactState from "./context/contact/ContactState";
 
@@ -30,6 +31,7 @@ const App = () => {
                 <Route exact path="/AdHoc" component={AdHoc} />
                 <Route exact path="/ContactForm" component={ContactForm} />
                 <Route exact path="/Login" component={Login} />
+                <Route exact path="/Register" component={Register} />
                 <Route path="/" component={PageNotFound} />
               </Switch>
             </div>
