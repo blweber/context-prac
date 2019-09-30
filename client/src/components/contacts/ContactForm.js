@@ -61,7 +61,7 @@ const ContactForm = props => {
  
     <div>
       <form onSubmit={onSubmit}>
-        <Grid container spacing={8}>
+        <Grid container spacing={16}>
           <Grid item xs={12}>
             <Grid container alignItems="flex-start" justify="flex-end">
                 <Grid item xs={6}>
