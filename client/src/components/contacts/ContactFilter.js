@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import { Link } from "react-router-dom";
+import { Input, Button, Icon } from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
 
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext); //app level state
@@ -18,20 +20,21 @@ const ContactFilter = () => {
   };
 
   return (
-    <div className="container-filter">
-      <form className="my-2">
-        <input
+    <Grid container spacing={3}>
+        <Grid item xs={10}>
+        <Icon>search</Icon>
+        <Input
           type="text"
-          placeholder="Filter Contacts..."
+          placeholder="Search..."
           onChange={onChange}
         />
-      </form>
-      <div>
-        <button type="button" className="btn btn-outline-primary mx-5">
+        </Grid>
+        <Grid item xs={2}>
+        <Button variant="contained">
           <Link to="/ContactForm">Add User</Link>
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 

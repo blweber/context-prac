@@ -22,23 +22,5 @@ export const Navigationbar = () => (
     <NavItem className="breadcrumbs">
         <Breadcrumbs />
     </NavItem>
-    <Collapse id="basic-navbar-nav" navbar>
-      <Nav className="ml-auto" navbar>
-        <NavItem>
-          <NavLink>
-            <Link className="text-warning" to="/Register">
-              Register
-            </Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <Link className="text-warning" to="/Login">
-              Login
-            </Link>
-          </NavLink>
-        </NavItem>
-      </Nav>
-    </Collapse>
   </Navbar>
 );
