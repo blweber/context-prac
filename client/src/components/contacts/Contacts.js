@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
+import { Table } from 'reactstrap';
+
 import ContactContext from "../../context/contact/contactContext";
 
 import ContactTable from "./ContactTable";
+import './contacts.scss';
+
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
@@ -14,9 +18,9 @@ const Contacts = () => {
 
   return (
     <div className="table-view">
-      <table className=" table-striped ">
+      <Table hover>
         <thead>
-          <tr>
+          <tr className="table-header">
             <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
@@ -30,7 +34,7 @@ const Contacts = () => {
             ? filtered.map(contact => <ContactTable contact={contact} />)
             : contacts.map(contact => <ContactTable contact={contact} />)}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };

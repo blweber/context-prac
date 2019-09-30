@@ -1,0 +1,10 @@
+@import '../../variables/base.scss';
+
+th {
+    font-weight: 100;
+}
+
+.table-header {
+    background: $navy;
+    color: $white;
+}

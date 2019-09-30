@@ -1,0 +1,23 @@
+@import '../variables/base.scss';
+
+.navbar {
+    background-color: $white;
+    color: white;
+    border-bottom: {
+        style: solid;
+        width: 0.05em;
+        color: $grey;
+    };
+  }
+
+  .breadcrumbs{
+      margin-left: 10em;
+  }
+
+  .nav-logo {
+    color: $grey;
+    font: {
+        weight: 400;
+        size: 30px;
+    }
+  }

@@ -10,12 +10,18 @@ import {
   NavLink
 } from "reactstrap";
 
+import './navigationBar.scss';
+import Breadcrumbs from "../components/shared/Breadcrumbs";
+
 export const Navigationbar = () => (
-  <Navbar className="navbar-dark bg-dark fixed-top mb-auto" expand="lg">
-    <NavbarBrand className="text-success" href="/">
-      Socium
+  <Navbar className="navbar fixed-top mb-auto" expand="lg">
+    <NavbarBrand className="nav-logo" href="/">
+      SOCIUM
     </NavbarBrand>
     <NavbarToggler aria-controls="basic-navbar-nav" />
+    <NavItem className="breadcrumbs">
+        <Breadcrumbs />
+    </NavItem>
     <Collapse id="basic-navbar-nav" navbar>
       <Nav className="ml-auto" navbar>
         <NavItem>
