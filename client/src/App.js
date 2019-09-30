@@ -14,6 +14,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Sidebar from "./layouts/Sidebar";
 import ContactState from "./context/contact/ContactState";
+import SystemRoles from "./pages/SystemRoles";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
                 <Route exact path="/Three33" component={Three33} />
                 <Route exact path="/Three45" component={Three45} />
                 <Route exact path="/AdHoc" component={AdHoc} />
+                <Route exact path="/SystemRoles" component={SystemRoles} />
                 <Route exact path="/ContactForm" component={ContactForm} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Register" component={Register} />
