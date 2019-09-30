@@ -6,7 +6,7 @@ const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-  const { firstname, lastname, systemrole, organization } = contact;
+  const { firstname, lastname, systemrole, organization, email } = contact;
 
   const onDelete = () => {
     deleteContact(id);
