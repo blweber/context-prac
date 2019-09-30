@@ -12,7 +12,7 @@ const ContactTable = ({ contact }) => {
 
   const { deleteContact } = contactContext;
 
-  const { id, firstname, lastname, systemrole, organization } = contact;
+  const { id, firstname, lastname, systemrole, organization, email } = contact;
 
   const onDelete = () => {
     deleteContact(id);
@@ -23,8 +23,9 @@ const ContactTable = ({ contact }) => {
       <th scope="row">{id}</th>
       <td>{firstname}</td>
       <td>{lastname}</td>
-      <td>{systemrole}</td>
+      <td>{email}</td>
       <td>{organization}</td>
+      <td>{systemrole}</td>
       <UncontrolledButtonDropdown className="dropdown m-2">
         <DropdownToggle caret>Action</DropdownToggle>
         <DropdownMenu right>

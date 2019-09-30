@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import { Link } from "react-router-dom";
 import { Input, Button, Icon } from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
+import Fab from '@material-ui/core/Fab';
+
+import "./contactFilter.scss"
 
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext); //app level state
@@ -30,9 +32,17 @@ const ContactFilter = () => {
         />
         </Grid>
         <Grid item xs={2}>
-        <Button variant="contained">
-          <Link to="/ContactForm">Add User</Link>
-        </Button>
+        <Fab
+          href="/ContactForm"
+          variant="extended"
+          size="small"
+          aria-label="save"
+          className={'add-user-btn'}
+          style={{width: '200px', float: 'right'}} //TODO: remove inline styling
+          type="button"
+        >
+          Add User
+        </Fab>
       </Grid>
     </Grid>
   );

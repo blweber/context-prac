@@ -24,8 +24,9 @@ const Contacts = () => {
             <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
-            <th scope="col">System Role</th>
+            <th scope="col">Email Address</th>
             <th scope="col">Organization</th>
+            <th scope="col">System Role</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
