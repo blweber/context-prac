@@ -17,7 +17,7 @@ const Contacts = () => {
   }
 
   return (
-    <div className="table-view">
+    <div>
       <Table hover>
         <thead>
           <tr className="table-header">
