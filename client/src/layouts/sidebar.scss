@@ -1,0 +1,33 @@
+@import '../variables/base.scss';
+
+.sidebar {
+    width: 15em;
+    height: 150%;
+    position: fixed;
+    top: 4.5em;
+    background: $white;
+    overflow-x: hidden;
+    padding: 8px 0;
+    border-right: {
+        style: solid;
+        width: 0.05em;
+        color: $grey;
+    };
+}
+
+.sidebar-list {
+    border-bottom: {
+        style: solid;
+        width: 0.05em;
+        color: #e9e9e9;
+    }
+    padding: 1.5em 0;
+    &:hover{
+        background: $grey-light;
+        border-right: {
+            style: solid;
+            color: $navy;
+            width: 0.1em;
+        }
+    }
+}
