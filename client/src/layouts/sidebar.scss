@@ -2,12 +2,11 @@
 
 .sidebar {
     width: 15em;
-    height: 150%;
+    height: 100vh;
     position: fixed;
     top: 4.5em;
     background: $white;
-    overflow-x: hidden;
-    padding: 8px 0;
+    padding: 4px 0;
     border-right: {
         style: solid;
         width: 0.05em;
@@ -28,7 +27,6 @@
         box-shadow: unset;
         background-color: transparent;
     }
-    padding: 1.5em 0;
     &:hover{
         background: $grey-light;
         border-right: {
