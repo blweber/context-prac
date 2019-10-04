@@ -1,0 +1,25 @@
+@import '../styles/colors';
+
+// TODO: add functioning breadcrumbs
+// .breadcrumbs {
+//     margin-left: 10em;
+// }
+
+// TODO: Add border-right to SOCIUM logo
+// .logo-border {
+//     border-right: $grey-border;
+//     height: 100%;
+// }
+
+.MuiAppBar-colorPrimary {
+    background: $white;
+    color: $black;
+    border-bottom: $grey-border;
+}
+.MuiPaper-elevation4 {
+    box-shadow: unset;
+}
+
+.MuiToolbar-gutters {
+    padding: 0;
+}
