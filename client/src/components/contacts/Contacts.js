@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Table } from 'reactstrap';
+import { Table } from "reactstrap";
 
 import ContactContext from "../../context/contact/contactContext";
 
 import ContactTable from "./ContactTable";
-import './contacts.scss';
-
+import "./contacts.scss";
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
@@ -27,6 +26,7 @@ const Contacts = () => {
             <th scope="col">Email Address</th>
             <th scope="col">Organization</th>
             <th scope="col">System Role</th>
+            <th scope="col">Data Role</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>

@@ -21,6 +21,7 @@ const ContactState = props => {
         lastname: "Plotkin",
         systemrole: "Edit",
         organization: "DSCA",
+        datarole: "AM&E",
         email: "jp@dsca.com"
       },
       {
@@ -29,6 +30,7 @@ const ContactState = props => {
         lastname: "Jordan",
         systemrole: "Configure",
         organization: "DSCA",
+        datarole: "Global DM",
         email: "mj@dsca.com"
       },
       {
@@ -37,6 +39,7 @@ const ContactState = props => {
         lastname: "Omo-Ekpadi",
         systemrole: "Edit",
         organization: "DSCA",
+        datarole: "DSCA Reviewer",
         email: "bo@dsca.com"
       },
       {
@@ -45,6 +48,7 @@ const ContactState = props => {
         lastname: "Jones",
         systemrole: "Edit",
         organization: "AC",
+        datarole: "Originator",
         email: "aj@dsca.com"
       },
       {
@@ -53,6 +57,7 @@ const ContactState = props => {
         lastname: "Fraher",
         systemrole: "Configure",
         organization: "EC",
+        datarole: "Organizational DM",
         email: "jf@dsca.com"
       },
       {
@@ -61,6 +66,7 @@ const ContactState = props => {
         lastname: "Hildebrand",
         systemrole: "View",
         organization: "MILDEP",
+        datarole: "View Only",
         email: "jh@dsca.com"
       },
       {
@@ -69,6 +75,7 @@ const ContactState = props => {
         lastname: "Sachar",
         systemrole: "Edit",
         organization: "EC",
+        datarole: "Secondary POC",
         email: "es@dsca.com"
       },
       {
@@ -77,6 +84,7 @@ const ContactState = props => {
         lastname: "Edozie",
         systemrole: "Administrator",
         organization: "DSCA",
+        datarole: "Administrator",
         email: "me@dsca.com"
       },
       {
@@ -85,6 +93,7 @@ const ContactState = props => {
         lastname: "Meyers",
         systemrole: "Edit",
         organization: "MILDEP",
+        datarole: "Reviewer",
         email: "am@dsca.com"
       },
       {
@@ -93,6 +102,7 @@ const ContactState = props => {
         lastname: "Porter",
         systemrole: "Configure",
         organization: "DSCA",
+        datarole: "Secondary POC",
         email: "sp@dsca.com"
       }
     ],
