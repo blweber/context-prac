@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import { Link } from "react-router-dom";
-import { Input, Button, Icon } from "@material-ui/core";
+import { Input, Icon } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import ReusableButton from "./../shared/ReusableButton";
 
 const SystemFilter = () => {
   const contactContext = useContext(ContactContext); //app level state
@@ -26,9 +27,12 @@ const SystemFilter = () => {
         <Input type="text" placeholder="Search..." onChange={onChange} />
       </Grid>
       <Grid item xs={2}>
-        <Button variant="contained">
+        <ReusableButton color="primary" round>
           <Link to="/CreateSystemRole">Create System Role</Link>
-        </Button>
+        </ReusableButton>
+        {/* <Button variant="contained">
+          <Link to="/CreateSystemRole">Create System Role</Link>
+        </Button> */}
       </Grid>
     </Grid>
   );

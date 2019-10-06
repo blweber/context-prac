@@ -1,21 +1,80 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// nodejs library that concatenates classes
+import classNames from "classnames";
+
+// @material-ui/core components
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles({
-  root: {
-    background: "#1e88e5",
-    border: 0,
-    borderRadius: 10,
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-    color: "white",
-    height: 30,
-    padding: "0 30px"
-  }
+// core components
+
+import buttonStyle from "./buttonStyle";
+
+const makeComponentStyles = makeStyles(() => ({
+  ...buttonStyle
+}));
+
+const ReusableButton = React.forwardRef((props, ref) => {
+  const {
+    color,
+    round,
+    children,
+    fullWidth,
+    disabled,
+    simple,
+    size,
+    block,
+    link,
+    justIcon,
+    className,
+    ...rest
+  } = props;
+
+  const classes = makeComponentStyles();
+
+  const btnClasses = classNames({
+    [classes.button]: true,
+    [classes[size]]: size,
+    [classes[color]]: color,
+    [classes.round]: round,
+    [classes.fullWidth]: fullWidth,
+    [classes.disabled]: disabled,
+    [classes.simple]: simple,
+    [classes.block]: block,
+    [classes.link]: link,
+    [classes.justIcon]: justIcon,
+    [className]: className
+  });
+  return (
+    <Button {...rest} ref={ref} className={btnClasses}>
+      {children}
+    </Button>
+  );
 });
 
-const ReusableButton = props => {
-  const classes = useStyles();
-  return <Button className={classes.root}>{props.children}</Button>;
+ReusableButton.propTypes = {
+  color: PropTypes.oneOf([
+    "primary",
+    "info",
+    "success",
+    "warning",
+    "danger",
+    "rose",
+    "white",
+    "transparent"
+  ]),
+  size: PropTypes.oneOf(["sm", "lg"]),
+  simple: PropTypes.bool,
+  round: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
+  block: PropTypes.bool,
+  link: PropTypes.bool,
+  justIcon: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
+
 export default ReusableButton;
