@@ -1,9 +1,6 @@
-.container-div {
-    position: absolute;
-    left: 15em;
-    top: 7em;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
+@import '../styles/colors';
+
+.main-content {
+    background: $grey-light;
+    height: 100vh;
 }

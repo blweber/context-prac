@@ -1,38 +1,33 @@
-@import '../variables/base.scss';
+@import '../styles/colors';
+@import '../styles/_typography.scss';
 
-.sidebar {
-    width: 15em;
-    height: 100vh;
-    position: fixed;
-    top: 4.5em;
-    background: $white;
-    padding: 4px 0;
-    border-right: {
-        style: solid;
-        width: 0.05em;
-        color: $grey;
-    };
+
+.MuiDrawer-paper {
+    z-index: 1000;
+    margin-top: 55px;
 }
 
-.sidebar-list {
-    border-bottom: {
-        style: solid;
-        width: 0.05em;
-        color: #e9e9e9;
-    }
-    .MuiExpansionPanelDetails-root .MuiTypography-body1 {
-        font-size: .85rem;
-    }
+.drawer-paper {
+    width: 35vh;
+    flex-shrink: 0;
     .MuiPaper-elevation1 {
+        border-bottom: $grey-border;
         box-shadow: unset;
-        background-color: transparent;
-    }
-    &:hover{
-        background: $grey-light;
-        border-right: {
-            style: solid;
-            color: $navy;
-            width: 0.1em;
+        &:hover{
+            background: $grey-light;
+            border-right: {
+                style: solid;
+                color: $navy;
+                width: 0.1em;
+            }
         }
+    }
+    
+    .MuiExpansionPanel-root.Mui-expanded {
+        margin: 0;
+    }
+    
+    .MuiPaper-rounded .MuiExpansionPanel-rounded {
+        border-radius: 0;
     }
 }
