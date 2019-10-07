@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const ContactForm = props => {
   const contactContext = useContext(ContactContext);
 
-  const { addContact, updateContact, current } = contactContext;
+  const { addContact, updateContact, current, clearCurrent } = contactContext;
 
   useEffect(() => {
     if (current !== null) {
@@ -63,6 +63,10 @@ const ContactForm = props => {
     props.history.push("/");
   };
 
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -76,6 +80,7 @@ const ContactForm = props => {
                   aria-label="cancel"
                   className={{ label: "cancel-btn" }}
                   style={{ width: "200px" }}
+                  onClick={clearAll}
                   component={Link}
                   to="/"
                 >
@@ -91,7 +96,7 @@ const ContactForm = props => {
                   style={{ width: "200px", float: "right" }} //TODO: remove inline styling
                   type="submit"
                 >
-                  Save and Finish
+                  {current ? "Edit User" : "Save"}
                 </Fab>
               </Grid>
             </Grid>
