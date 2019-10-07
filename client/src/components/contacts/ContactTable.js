@@ -14,7 +14,15 @@ const ContactTable = ({ contact }) => {
 
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-  const { id, firstname, lastname, systemrole, organization, email } = contact;
+  const {
+    id,
+    firstname,
+    lastname,
+    systemrole,
+    datarole,
+    organization,
+    email
+  } = contact;
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -43,6 +51,7 @@ const ContactTable = ({ contact }) => {
       <td>{email}</td>
       <td>{organization}</td>
       <td>{systemrole}</td>
+      <td>{datarole}</td>
       <Grid container justify="center">
         <IconButton
           onClick={handleClick}

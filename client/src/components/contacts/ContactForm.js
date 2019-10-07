@@ -27,6 +27,7 @@ const ContactForm = props => {
         lastname: "",
         systemrole: "",
         organization: "",
+        datarole: "",
         email: ""
       });
     }
@@ -37,10 +38,18 @@ const ContactForm = props => {
     lastname: "",
     systemrole: "",
     organization: "",
+    datarole: "",
     email: ""
   });
 
-  const { firstname, lastname, systemrole, organization, email } = contact;
+  const {
+    firstname,
+    lastname,
+    systemrole,
+    datarole,
+    organization,
+    email
+  } = contact;
 
   const onChange = e =>
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -58,6 +67,7 @@ const ContactForm = props => {
       email: "",
       organization: "",
       employeetype: "",
+      datarole: "",
       systemrole: ""
     });
     props.history.push("/");
@@ -193,6 +203,22 @@ const ContactForm = props => {
                   placeholder="SystemRole"
                   name="systemrole"
                   value={systemrole}
+                  onChange={onChange}
+                  // className="mx-1"
+                />
+              </FormControl>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card className="add-user-card">
+              <CardHeader title="Data Role" />
+              <FormControl>
+                <InputLabel>Data Role</InputLabel>
+                <Input
+                  type="text"
+                  placeholder="DataRole"
+                  name="datarole"
+                  value={datarole}
                   onChange={onChange}
                   // className="mx-1"
                 />
