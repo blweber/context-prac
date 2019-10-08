@@ -12,6 +12,7 @@ import './navBar.scss';
 //TODO: 
 //** add  breadcrumbs
 //** fix logo border-right
+
 const NavBar = () => {
   return (
     <Grid item xs={12}>
