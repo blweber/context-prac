@@ -1,0 +1,33 @@
+@import '../styles/colors';
+@import '../styles/_typography.scss';
+
+
+.MuiDrawer-paper {
+    z-index: 1000;
+    margin-top: 55px;
+}
+
+.drawer-paper {
+    width: 35vh;
+    flex-shrink: 0;
+    .MuiPaper-elevation1 {
+        border-bottom: $grey-border;
+        box-shadow: unset;
+        &:hover{
+            background: $grey-light;
+            border-right: {
+                style: solid;
+                color: $navy;
+                width: 0.1em;
+            }
+        }
+    }
+    
+    .MuiExpansionPanel-root.Mui-expanded {
+        margin: 0;
+    }
+    
+    .MuiPaper-rounded .MuiExpansionPanel-rounded {
+        border-radius: 0;
+    }
+}

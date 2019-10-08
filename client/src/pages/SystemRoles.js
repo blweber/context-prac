@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardBody } from 'reactstrap';
-import ContactFilter from "../components/contacts/ContactFilter";
+import { Card, CardBody } from "reactstrap";
+import SystemFilter from "../components/systemroles/SystemFilter";
 import { Icon, Grid } from "@material-ui/core";
-import Contacts from "../components/contacts/Contacts";
+import SystemTable from "../components/systemroles/SystemTable";
 
-const Home = () => {
+const SystemRoles = () => {
   return (
     <div>
       <div className="row">
@@ -16,7 +16,11 @@ const Home = () => {
                   <Icon>account_box</Icon>
                 </Grid>
                 <Grid item xs={10}>
-                  <p>Have a new system role you need created?<br /><a>Create a new system role.</a></p>
+                  <p>
+                    Have a new system role you need created?
+                    <br />
+                    <a>Create a new system role.</a>
+                  </p>
                 </Grid>
               </Grid>
             </CardBody>
@@ -27,11 +31,11 @@ const Home = () => {
       <Card>
         <CardBody>
           <div className="grid-2">
+            <h3>Manage System Roles</h3>
             <div>
-              <ContactFilter />
-              <br />
-              <Contacts />
+              <SystemFilter />
             </div>
+            <SystemTable />
           </div>
         </CardBody>
       </Card>
@@ -39,4 +43,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SystemRoles;

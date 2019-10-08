@@ -20,70 +20,80 @@ const ContactState = props => {
         firstname: "Jared ",
         lastname: "Plotkin",
         systemrole: "Edit",
-        organization: "DSCA"
+        organization: "DSCA",
+        email: "jp@dsca.com"
       },
       {
         id: 2,
         firstname: "Michael ",
         lastname: "Jordan",
         systemrole: "Configure",
-        organization: "DSCA"
+        organization: "DSCA",
+        email: "mj@dsca.com"
       },
       {
         id: 3,
         firstname: "Bridget",
         lastname: "Omo-Ekpadi",
         systemrole: "Edit",
-        organization: "DSCA"
+        organization: "DSCA",
+        email: "bo@dsca.com"
       },
       {
         id: 4,
         firstname: "Alex",
         lastname: "Jones",
         systemrole: "Edit",
-        organization: "AC"
+        organization: "AC",
+        email: "aj@dsca.com"
       },
       {
         id: 5,
         firstname: "Jacob",
         lastname: "Fraher",
         systemrole: "Configure",
-        organization: "EC"
+        organization: "EC",
+        email: "jf@dsca.com"
       },
       {
         id: 6,
         firstname: "James",
         lastname: "Hildebrand",
         systemrole: "View",
-        organization: "MILDEP"
+        organization: "MILDEP",
+        email: "jh@dsca.com"
       },
       {
         id: 7,
         firstname: "Eva",
         lastname: "Sachar",
         systemrole: "Edit",
-        organization: "EC"
+        organization: "EC",
+        email: "es@dsca.com"
       },
       {
         id: 8,
         firstname: "Marie",
         lastname: "Edozie",
         systemrole: "Administrator",
-        organization: "DSCA"
+        organization: "DSCA",
+        email: "me@dsca.com"
       },
       {
         id: 9,
         firstname: "Adrian",
         lastname: "Meyers",
         systemrole: "Edit",
-        organization: "MILDEP"
+        organization: "MILDEP",
+        email: "am@dsca.com"
       },
       {
         id: 10,
         firstname: "Steve",
         lastname: "Porter",
         systemrole: "Configure",
-        organization: "DSCA"
+        organization: "DSCA",
+        email: "sp@dsca.com"
       }
     ],
     current: null,
@@ -135,7 +145,7 @@ const ContactState = props => {
         clearFilter
       }}
     >
-      {props.children}
+      { props.children }
     </contactContext.Provider>
   );
 };
