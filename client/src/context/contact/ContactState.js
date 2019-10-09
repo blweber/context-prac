@@ -20,70 +20,90 @@ const ContactState = props => {
         firstname: "Jared ",
         lastname: "Plotkin",
         systemrole: "Edit",
-        organization: "DSCA"
+        organization: "DSCA",
+        datarole: "AM&E",
+        email: "jp@dsca.com"
       },
       {
         id: 2,
         firstname: "Michael ",
         lastname: "Jordan",
         systemrole: "Configure",
-        organization: "DSCA"
+        organization: "DSCA",
+        datarole: "Global DM",
+        email: "mj@dsca.com"
       },
       {
         id: 3,
         firstname: "Bridget",
         lastname: "Omo-Ekpadi",
         systemrole: "Edit",
-        organization: "DSCA"
+        organization: "DSCA",
+        datarole: "DSCA Reviewer",
+        email: "bo@dsca.com"
       },
       {
         id: 4,
         firstname: "Alex",
         lastname: "Jones",
         systemrole: "Edit",
-        organization: "AC"
+        organization: "AC",
+        datarole: "Originator",
+        email: "aj@dsca.com"
       },
       {
         id: 5,
         firstname: "Jacob",
         lastname: "Fraher",
         systemrole: "Configure",
-        organization: "EC"
+        organization: "EC",
+        datarole: "Organizational DM",
+        email: "jf@dsca.com"
       },
       {
         id: 6,
         firstname: "James",
         lastname: "Hildebrand",
         systemrole: "View",
-        organization: "MILDEP"
+        organization: "MILDEP",
+        datarole: "View Only",
+        email: "jh@dsca.com"
       },
       {
         id: 7,
         firstname: "Eva",
         lastname: "Sachar",
         systemrole: "Edit",
-        organization: "EC"
+        organization: "EC",
+        datarole: "Secondary POC",
+        email: "es@dsca.com"
       },
       {
         id: 8,
         firstname: "Marie",
         lastname: "Edozie",
         systemrole: "Administrator",
-        organization: "DSCA"
+        organization: "DSCA",
+        datarole: "Administrator",
+        email: "me@dsca.com"
       },
       {
         id: 9,
         firstname: "Adrian",
         lastname: "Meyers",
         systemrole: "Edit",
-        organization: "MILDEP"
+        organization: "MILDEP",
+        datarole: "Reviewer",
+        email: "am@dsca.com"
       },
       {
         id: 10,
         firstname: "Steve",
         lastname: "Porter",
         systemrole: "Configure",
-        organization: "DSCA"
+        organization: "DSCA",
+        datarole: "Secondary POC",
+        email: "sp@dsca.com"
       }
     ],
     current: null,

@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 import Home from "./pages/Home";
 import Three33 from "./pages/Three33";
 import Three45 from "./pages/Three45";
 import AdHoc from "./pages/AdHoc";
 import PageNotFound from "./pages/PageNotFound";
-import "./App.css";
 import Layout from "../src/layouts/Layout";
-import { Navigationbar } from "./layouts/NavigationBar";
+import NavBar from "./layouts/NavBar";
 import Footer from "./layouts/Footer";
 import ContactForm from "./components/contacts/ContactForm";
 import Login from "./components/auth/Login";

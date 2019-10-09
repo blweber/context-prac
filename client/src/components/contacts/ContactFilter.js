@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import { Link } from "react-router-dom";
+import { Input, Button, Icon } from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
+import Fab from '@material-ui/core/Fab';
+
+import "./contactFilter.scss"
 
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext); //app level state
@@ -18,20 +22,29 @@ const ContactFilter = () => {
   };
 
   return (
-    <div className="container-filter">
-      <form className="my-2">
-        <input
+    <Grid container spacing={3}>
+        <Grid item xs={10}>
+        <Icon>search</Icon>
+        <Input
           type="text"
-          placeholder="Filter Contacts..."
+          placeholder="Search..."
           onChange={onChange}
         />
-      </form>
-      <div>
-        <button type="button" className="btn btn-outline-primary mx-5">
-          <Link to="/ContactForm">Add User</Link>
-        </button>
-      </div>
-    </div>
+        </Grid>
+        <Grid item xs={2}>
+        <Fab
+          href="/ContactForm"
+          variant="extended"
+          size="small"
+          aria-label="save"
+          className={'add-user-btn'}
+          style={{width: '200px', float: 'right'}} //TODO: remove inline styling
+          type="button"
+        >
+          Add User
+        </Fab>
+      </Grid>
+    </Grid>
   );
 };
 
