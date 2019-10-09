@@ -1,0 +1,9 @@
+// TODO: make button component and style button.scss
+@import '../../styles/colors';
+
+a.add-user-btn {
+    min-width: 180px;
+    background: $blue;
+    color: #ffffff;
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,22 @@
+// TODO: make card a component and style card.scss
+@import '../../styles/colors';
+
+.add-user-card { 
+    padding: 30px;
+    margin: 10px;
+}
+
+div.card-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+button.save-btn {
+    min-width: 180px;
+    background: $blue;
+    color: #ffffff;
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+}
+.cancel-btn{
+    background: rgba(0,0,0,0);
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+}

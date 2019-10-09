@@ -1,0 +1,10 @@
+@import '../../styles/colors';
+
+th {
+    font-weight: 100;
+}
+
+.table-header {
+    background: $navy;
+    color: $white;
+}

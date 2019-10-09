@@ -1,0 +1,142 @@
+@import './styles/_typography.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $open-sans;
+}
+
+.MuiButton-contained {
+  background-color: #0077E1 !important;
+  color: white !important;
+  font-weight: 300 !important;
+}
+
+.MuiButton-label a {
+  color: white !important;
+}
+
+input {
+  margin: 1.2rem 0;
+}
+
+.container-filter {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  margin: 1.2rem 0;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
+.form select,
+.form textarea {
+  display: block;
+  width: 50%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  margin: 1.2rem 0;
+}
+
+.form-group input {
+  margin: 0.2rem 0;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.form-group input {
+  margin: 0.2rem 0;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.form-container h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+input[type="submit"],
+button {
+  font: inherit;
+}
+
+.form-container h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.table-striped {
+  height: 5vh;
+  width: 100%;
+}
+
+.table-view {
+  height: 100vh;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown {
+  top: 0;
+  position: relative;
+  margin-top: -1px;
+}
+
+.form .form-group {
+  margin: 1.2rem 0;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App {
+  text-align: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
