@@ -10,7 +10,17 @@ import ContactContext from "../../context/contact/contactContext";
 const ContactTable = ({ contact }) => {
   const contactContext = useContext(ContactContext);
 
-  const { deleteContact } = contactContext;
+  const { deleteContact, setCurrent, clearCurrent } = contactContext;
+
+  const { id, firstname, lastname, systemrole, organization, email } = contact;
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  console.log('CONTACT: ', contact);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
 
   const { id, firstname, lastname, systemrole, organization } = contact;
 
