@@ -1,8 +1,6 @@
 import React, { useReducer } from 'react';
 import ActivityContext from './ActivityContext';
 import ActivityReducer from './ActivityReducer';
-import Activities from '../../components/activities/Activities';
-import ActivityTable from '../../components/activities/ActivityTable';
 import uuid from "uuid";
 import { ADD_ACTIVITY, DELETE_ACTIVITY, SET_CURRENT_ACTIVITY } from '../types';
 
