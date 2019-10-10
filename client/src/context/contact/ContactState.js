@@ -155,7 +155,7 @@ const ContactState = props => {
         clearFilter
       }}
     >
-      {props.children}
+      { props.children }
     </contactContext.Provider>
   );
 };
