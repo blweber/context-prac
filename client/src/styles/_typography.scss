@@ -1,8 +1,11 @@
 /* Typography for HTML elements and other shared classes */
 @import './colors.scss';
 
+// SASS VARIABLES
 $open-sans: 'Open Sans', sans-serif;
+$font-medium: 600;
 
+// TYPOGRAPHY CLASSES
 .font-light {
     font-weight: 300;
 }
@@ -31,8 +34,7 @@ $open-sans: 'Open Sans', sans-serif;
     text-transform: capitalize;
 }
 
-// HEADERS
-
+// HEADER CLASSES
 h1, h2, h3, h4, h5, h6 {
     font-family: $open-sans !important;
 }

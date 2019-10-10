@@ -2,7 +2,13 @@ import React, { useReducer } from 'react';
 import ActivityContext from './ActivityContext';
 import ActivityReducer from './ActivityReducer';
 import uuid from "uuid";
-import { ADD_ACTIVITY, DELETE_ACTIVITY, SET_CURRENT_ACTIVITY } from '../types';
+import { 
+    ADD_ACTIVITY, 
+    DELETE_ACTIVITY, 
+    SET_CURRENT_ACTIVITY,
+    FILTER_ACTIVITIES,
+    CLEAR_FILTERED_ACTIVITIES,
+} from '../types';
 
 const ActivityState = props => {
 
@@ -169,7 +175,8 @@ const ActivityState = props => {
                 data_role: "Originator",
             }
         ],
-        filtered: null,
+				current: null,
+				filtered: null,
     };
 
     // The dispatch function sends an action to the reducer 
@@ -189,17 +196,28 @@ const ActivityState = props => {
     const setCurrentActivity = activity => {
         dispatch({ type: SET_CURRENT_ACTIVITY, payload: activity });
     };
+    const filterActivities = text => {
+        dispatch({ type: FILTER_ACTIVITIES, payload: text });
+    };
+    const clearFilteredActivities = () => {
+        dispatch({ type: CLEAR_FILTERED_ACTIVITIES });
+    };
 
     return ( 
-        <ActivityContext.Provider 
-            value={{
-                    activities: state.activities, 
-                    addActivity, 
-                    deleteActivity,
-                    setCurrentActivity
-                }}>
-           { props.children }
-        </ActivityContext.Provider>
+			<ActivityContext.Provider 
+				value={{
+					activities: state.activities,
+					current: state.current,
+					filtered: state.filtered,
+					addActivity, 
+					deleteActivity,
+					setCurrentActivity,
+					filterActivities,
+					clearFilteredActivities
+				}}
+			>
+				{ props.children }
+			</ActivityContext.Provider>
     );
 }
  

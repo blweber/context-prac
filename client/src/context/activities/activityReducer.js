@@ -1,4 +1,10 @@
-import { ADD_ACTIVITY, DELETE_ACTIVITY, SET_CURRENT_ACTIVITY } from '../types';
+import { 
+	ADD_ACTIVITY, 
+	DELETE_ACTIVITY, 
+	SET_CURRENT_ACTIVITY, 
+	FILTER_ACTIVITIES, 
+	CLEAR_FILTERED_ACTIVITIES
+} from '../types';
   
   export default (state, action) => {
     switch (action.type) {
@@ -19,6 +25,21 @@ import { ADD_ACTIVITY, DELETE_ACTIVITY, SET_CURRENT_ACTIVITY } from '../types';
           ...state,
           current: action.payload
         };
+			case FILTER_ACTIVITIES:
+				return {
+					...state,
+					filtered: state.activities.filter(activity => {
+						const regex = new RegExp(`${action.payload}`, "gi");
+						return (
+							activity.activity_name.match(regex) || activity.legal_authority.match(regex)
+						);
+					})
+				};
+			case CLEAR_FILTERED_ACTIVITIES:
+				return {
+					...state,
+					filtered: null
+				};
       default:
         return state;
     }

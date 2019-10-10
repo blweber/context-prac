@@ -1,49 +1,46 @@
 import React, { useContext, useState } from "react";
-import axios from 'axios';
 
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
 
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
+// import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 
 import ActivityContext from "../../context/activities/ActivityContext";
+import ActivitySearch from "./ActivitySearch";
 
 import './activityTable.scss';
 
 const ActivityTable = ({ activity }) => {
 	// Subscribe to Activities state and access deleteActivity action
 	const activityContext = useContext(ActivityContext);
-	const { activities } = activityContext;
+	const { activities, filtered } = activityContext;
 	
 	const [order, setOrder] = React.useState('asc');
 	const [orderBy, setOrderBy] = React.useState(activities.legal_authority); 
 
-	const rows = activities;
-
-	// Create new array with table row data
-	const rowsArr = activities.map(
-		({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
-		({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
-	);
+	// Create new array with table row data, all or filtered
+	let rowsArr;
+	if(filtered) {
+		rowsArr = filtered.map(
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
+		);
+	}else {
+		rowsArr = activities.map(
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
+		);
+	}
 
 	function desc(a, b, orderBy) {
 		if (b[orderBy] < a[orderBy]) {
@@ -174,13 +171,15 @@ const ActivityTable = ({ activity }) => {
 		<Grid>
 			<Paper>
 				<h5 className={'act-header font-medium'}>Activities</h5>
+				<div><ActivitySearch/></div>
+		
 				<Table aria-labelledby="activitiesTable">
 					<EnhancedTableHead
 						order={order}
 						orderBy={orderBy}
 						onRequestSort={handleRequestSort}
-						rowCount={rows.length}
-						className={'act-tbl-header'}
+						rowCount={rowsArr.length}
+						className={'act-filter'}
 					/>
 					<TableBody>
 						{stableSort(rowsArr, getSorting(order, orderBy))
