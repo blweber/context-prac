@@ -51,7 +51,7 @@ const Sidebar = () => {
                   <Typography>Activities</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Link to="/AdHoc"><Typography>
+                  <Link to="/Activities"><Typography>
                     Activities Details
                     </Typography> </Link>
                 </ExpansionPanelDetails>

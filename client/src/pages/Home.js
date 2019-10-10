@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardBody } from 'reactstrap';
-import ContactFilter from "../components/contacts/ContactFilter";
 import { Icon, Grid } from "@material-ui/core";
+
+import ContactFilter from "../components/contacts/ContactFilter";
 import Contacts from "../components/contacts/Contacts";
 
 const Home = () => {
