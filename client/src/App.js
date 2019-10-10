@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 import Home from "./pages/Home";
-import Three33 from "./pages/Three33";
-import Three45 from "./pages/Three45";
-import AdHoc from "./pages/AdHoc";
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "../src/layouts/Layout";
 import NavBar from "./layouts/NavBar";
