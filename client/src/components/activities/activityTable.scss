@@ -1,11 +1,33 @@
-.visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1;
-    margin: -1;
-    overflow: 'hidden';
-    padding: 0;
-    position: 'absolute';
-    top: 20;
-    width: 1;
+@import '../../styles/colors.scss';
+
+// .visually-hidden {
+//     border: 0;
+//     clip: rect(0 0 0 0);
+//     height: 1;
+//     margin: -1;
+//     overflow: 'hidden';
+//     padding: 0;
+//     position: 'absolute';
+//     top: 20;
+//     width: 1;
+// }
+
+.wt-red {
+    background: #FFB9B9;
+}
+
+.wt-orange {
+    background: #FFE5B4;
+}
+
+.act-header{
+    padding: 0.5rem;
+}
+
+.act-tbl-header{
+    background: $navy !important;
+}
+
+.MuiTableCell-paddingNone {
+    padding: 10px;
 }

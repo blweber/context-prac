@@ -168,7 +168,8 @@ const ActivityState = props => {
                 wait_time: 10,
                 data_role: "Originator",
             }
-        ]
+        ],
+        filtered: null,
     };
 
     // The dispatch function sends an action to the reducer 
