@@ -12,6 +12,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Sidebar from "./layouts/Sidebar";
 import ContactState from "./context/contact/ContactState";
+import StatusState from "./context/status/StatusState";
 import ActivityState from "./context/activities/ActivityState";
 import SystemRoles from "./pages/SystemRoles";
 import CreateSystemRole from "./pages/CreateSystemRole";
@@ -26,31 +27,33 @@ const App = () => {
   return (
     <StylesProvider injectFirst>
       <ContactState>
-        <ActivityState>
-          <Fragment>
-            <Router>
-              <NavBar />
-              <Grid container>
-                <Sidebar />
-                <Layout>
-                  <div>
-                    <Switch>
-                      <Route exact path="/" component={Home} />
-                      <Route exact path="/SystemRoles" component={SystemRoles} />
-                      <Route exact path="/ContactForm" component={ContactForm} />
-                      <Route exact path="/CreateSystemRole" component={CreateSystemRole} />
-                      <Route exact path="/Login" component={Login} />
-                      <Route exact path="/Register" component={Register} />
-                      <Route exact path="/Activities" component={Activities} />
-                      <Route path="/" component={PageNotFound} />
-                    </Switch>
-                  </div>
-                </Layout>
-              </Grid>
-              <Footer />
-            </Router>
-          </Fragment>
-        </ActivityState>
+        <StatusState>
+          <ActivityState>
+            <Fragment>
+              <Router>
+                <NavBar />
+                <Grid container>
+                  <Sidebar />
+                  <Layout>
+                    <div>
+                      <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/SystemRoles" component={SystemRoles} />
+                        <Route exact path="/ContactForm" component={ContactForm} />
+                        <Route exact path="/CreateSystemRole" component={CreateSystemRole} />
+                        <Route exact path="/Login" component={Login} />
+                        <Route exact path="/Register" component={Register} />
+                        <Route exact path="/Activities" component={Activities} />
+                        <Route path="/" component={PageNotFound} />
+                      </Switch>
+                    </div>
+                  </Layout>
+                </Grid>
+                <Footer />
+              </Router>
+            </Fragment>
+          </ActivityState>
+        </StatusState>
       </ContactState>
     </StylesProvider>
   );
