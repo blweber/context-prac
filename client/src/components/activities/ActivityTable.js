@@ -45,11 +45,6 @@ const ActivityTable = ({ activity }) => {
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
 		);
   }
-  
-// rowsArr.forEach(row => 
-//   if(row.legal_authority == )
-//   rowsArr.push()
-//   )  
 
   //**********************//
   //****COLUMN SORTING****//
@@ -84,15 +79,6 @@ const ActivityTable = ({ activity }) => {
 		setOrder(isDesc ? 'asc' : 'desc');
 		setOrderBy(property);
 	}
-
-	// Declare local state to be used internally by this component
-	// const [ selectedActivity, setSelectedActivity ] = useState();
-
-	// const onRemoveActivity = () => {
-	//     deleteActivity(selectedActivity)
-	//     setSelectedActivity(null); //clear selection
-	// }
-
 
   //***********************//
 	//***ENHANCED HEADERS***//
