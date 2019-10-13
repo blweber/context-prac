@@ -1,0 +1,13 @@
+@import '../../styles/typography.scss';
+@import '../../styles/colors.scss';
+
+.nudge-card {
+  min-height: 10rem;
+}
+
+a.create-act-btn{
+    min-width: 180px;
+    background: $blue;
+    color: $white;
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+}

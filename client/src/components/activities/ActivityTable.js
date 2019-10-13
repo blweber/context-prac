@@ -1,9 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, Fragment } from "react";
 
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -13,19 +9,28 @@ import TableHead from '@material-ui/core/TableHead';
 // import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+import { Collapse } from "@material-ui/core";
+
+import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+
+import ActivitySearch from "./ActivitySearch";
+import StatusStepper from './StatusStepper';
 
 import ActivityContext from "../../context/activities/ActivityContext";
-import ActivitySearch from "./ActivitySearch";
+import StatusContext from '../../context/status/StatusContext';
 
 import './activityTable.scss';
 
 const ActivityTable = ({ activity }) => {
-	// Subscribe to Activities state and access deleteActivity action
+	// Subscribe to Activities state
 	const activityContext = useContext(ActivityContext);
 	const { activities, filtered } = activityContext;
 	
 	const [order, setOrder] = React.useState('asc');
-	const [orderBy, setOrderBy] = React.useState(activities.legal_authority); 
+  const [orderBy, setOrderBy] = React.useState(activities.wait_time);
 
 	// Create new array with table row data, all or filtered
 	let rowsArr;
@@ -39,7 +44,11 @@ const ActivityTable = ({ activity }) => {
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
 		);
-	}
+  }
+
+  //**********************//
+  //****COLUMN SORTING****//
+  //**********************//
 
 	function desc(a, b, orderBy) {
 		if (b[orderBy] < a[orderBy]) {
@@ -71,15 +80,9 @@ const ActivityTable = ({ activity }) => {
 		setOrderBy(property);
 	}
 
-	// Declare local state to be used internally by this component
-	// const [ selectedActivity, setSelectedActivity ] = useState();
-
-	// const onRemoveActivity = () => {
-	//     deleteActivity(selectedActivity)
-	//     setSelectedActivity(null); //clear selection
-	// }
-
+  //***********************//
 	//***ENHANCED HEADERS***//
+  //**********************//
 
 	const headCells = [
 			{ id: 'activity_name', numeric: false, disablePadding: true, label: 'Title' },
@@ -124,9 +127,11 @@ const ActivityTable = ({ activity }) => {
 					</TableRow>
 				</TableHead>
 			);
-	}
-
-	//***TABLE BODY***//
+  }
+  
+  //***********************//
+  //********ACTIONS*******//
+  //***********************//
 
 	function ActivityActions(props) {
 		const [anchorEl, setAnchorEl] = React.useState(null);
@@ -136,7 +141,7 @@ const ActivityTable = ({ activity }) => {
 		};
 
 		const handleClose = () => {
-				setAnchorEl(null);
+      setAnchorEl(null);
 		};
 
 		return(
@@ -164,14 +169,44 @@ const ActivityTable = ({ activity }) => {
 				</Menu>
 			</Grid>
 		);
-	}
-	
+  }
+
+  //***********************//
+  //*****COLLAPSE COMP****//
+  //***********************//
+
+  const [expandIndex, setExpandIndex] = React.useState(null);
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  
+  function expandRow(row, index) {
+    if(!isExpanded || expandIndex != index){
+      setExpandIndex(index);
+      setIsExpanded(true);
+    }else {
+      setExpandIndex(null);
+      setIsExpanded(false);
+    }
+    return expandIndex;
+  }
+
+  
+  //STATUSES
+  const statusContext = useContext(StatusContext);
+  const { workflows } = statusContext
+
+  let newRowsArr;
+  if(workflows){
+    const arrInfoMap = new Map(workflows.map(o => [o.legal_authority, o]))
+    newRowsArr = rowsArr.map(o => ({ ...o, ...arrInfoMap.get(o.legal_authority) }))
+    let testt = newRowsArr[0];
+    console.log('arr or obj', testt.statuses.constructor);
+  }
+
 	return (
 		<Grid>
 			<Paper>
 				<h5 className={'act-header font-medium'}>Activities</h5>
-				<div><ActivitySearch/></div>
-		
+				<ActivitySearch/>
 				<Table aria-labelledby="activitiesTable">
 					<EnhancedTableHead
 						order={order}
@@ -181,23 +216,46 @@ const ActivityTable = ({ activity }) => {
 						className={'act-filter'}
 					/>
 					<TableBody>
-						{stableSort(rowsArr, getSorting(order, orderBy))
-							.map((row) => {
+						{stableSort(newRowsArr, getSorting(order, orderBy))
+							.map((row, index) => {
 								if(row.wait_time > 7) { 
 									var wtColor = 'wt-red'; 
 								} else if (row.wait_time > 5 && row.wait_time < 8) {
 									var wtColor = 'wt-orange'; 
-								}
+                }
+                console.log('statuses', row.statuses);
 								return (
-									<TableRow hover className={`MuiTableRow-root ${wtColor}`}>
-										<TableCell>{row.activity_name}</TableCell>
-										<TableCell>{row.legal_authority}</TableCell>
-										<TableCell>{row.status}</TableCell>
-										<TableCell>{row.wait_time}</TableCell>
-										<TableCell>{row.partner_nation}</TableCell>
-										<TableCell>{row.data_role}</TableCell>
-										<ActivityActions/>
-									</TableRow>
+                  <Fragment>
+                    <TableRow 
+                      hover 
+                      onClick={() => expandRow(row, index)} 
+                      className={`MuiTableRow-root ${wtColor}`}
+                      style={{ cursor: "pointer"}}
+                    >
+                      <TableCell>{row.activity_name}</TableCell>
+                      <TableCell>{row.legal_authority}</TableCell>
+                      <TableCell>{row.status}</TableCell>
+                      <TableCell>{row.wait_time}</TableCell>
+                      <TableCell>{row.partner_nation}</TableCell>
+                      <TableCell>{row.data_role}</TableCell>
+                      <ActivityActions/>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
+                        <Collapse
+                          in={expandIndex === index}
+                          timeout="auto"
+                          unmountOnExit
+                        >
+                          <StatusStepper
+                            legalAuthority={row.legal_authority}
+                            currentStatus={row.status}
+                            statuses={row.statuses}
+                          />
+                        </Collapse>
+                      </TableCell>
+                    </TableRow>
+                  </Fragment>
 								);
 							})
 						}
