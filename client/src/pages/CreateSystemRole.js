@@ -21,7 +21,7 @@ const CreateSystemRole = () => {
 
   return (
     <div>
-      <SystemFilter />
+      <SystemFilter href={"/systemroles"} />
       <SystemRoleName />
 
       <br />

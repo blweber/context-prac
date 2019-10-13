@@ -1,18 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import "./navBar.scss";
-import Breadcrumb from "./../components/shared/breadcrumbs/Breadcrumbs";
 
 const items = [
-  { to: "/", label: "User management" },
-  { to: "/AdHoc", label: "Dashboard" },
-  { to: "/systemroles", label: "System Roles" },
-  { to: "/ContactForm", label: "Contact Form" },
-  { to: "/CreateSystemRole", label: "Create System Role" }
+  { to: "/", exact: true, label: () => <h6>User Management</h6> },
+  { to: "/Activities", exact: true, label: () => <h6>Activities</h6> },
+  { to: "/systemroles", exact: true, label: () => <h6>System Roles</h6> },
+  {
+    to: "/ContactForm",
+    exact: true,
+    label: () => <h6>User Management > Contact Form</h6>
+  },
+  {
+    to: "/CreateSystemRole",
+    exact: true,
+    label: () => <h6>System Roles > Create System Role</h6>
+  }
 ];
 
 //TODO:
@@ -31,13 +38,16 @@ const NavBar = () => {
               </Typography>
             </Grid>
             <Grid item xs={10}>
-              <Breadcrumb>
-                {items.map(({ to, label }) => (
-                  <Link key={to} to={to}>
-                    {label}
-                  </Link>
+              <Router>
+                {items.map(item => (
+                  <Route
+                    Key={item.to}
+                    path={item.to}
+                    exact={item.exact}
+                    component={item.label}
+                  />
                 ))}
-              </Breadcrumb>
+              </Router>
             </Grid>
           </Grid>
         </Toolbar>

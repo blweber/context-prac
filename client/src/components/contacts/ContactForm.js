@@ -91,8 +91,7 @@ const ContactForm = props => {
                   className={{ label: "cancel-btn" }}
                   style={{ width: "200px" }}
                   onClick={clearAll}
-                  component={Link}
-                  to="/"
+                  href="/"
                 >
                   Cancel
                 </Fab>

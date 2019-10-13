@@ -33,7 +33,7 @@ const SystemRoles = () => {
           <div className="grid-2">
             <h3>Manage System Roles</h3>
             <div>
-              <SystemFilter />
+              <SystemFilter href={"/CreateSystemRole"} />
             </div>
             <SystemTable />
           </div>

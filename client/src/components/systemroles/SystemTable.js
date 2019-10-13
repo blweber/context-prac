@@ -106,10 +106,10 @@ const SystemTable = () => {
                   >
                     <MenuItem onClick={handleClose}>Disable</MenuItem>
                     <MenuItem>
-                      <Link to="/CreateSystemRole">Update</Link>
+                      <a href="/CreateSystemRole">Update</a>
                     </MenuItem>
                     <MenuItem>
-                      <Link>Delete</Link>
+                      <a href="/!#">Delete</a>
                     </MenuItem>
                   </Menu>
                 </Grid>
