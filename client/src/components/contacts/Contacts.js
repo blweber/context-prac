@@ -20,7 +20,6 @@ const Contacts = () => {
       <Table hover>
         <thead>
           <tr className="table-header">
-            <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Email Address</th>

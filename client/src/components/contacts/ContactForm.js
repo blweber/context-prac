@@ -4,7 +4,7 @@ import {
   FormControl,
   InputLabel,
   Input,
-  TextField
+  NativeSelect
 } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -133,7 +133,7 @@ const ContactForm = props => {
             <Card className="add-user-card">
               <CardHeader title="Last Name" />
               <FormControl>
-                <InputLabel>First Name</InputLabel>
+                <InputLabel>Last Name</InputLabel>
                 <Input
                   type="text"
                   placeholder="LastName"
@@ -166,14 +166,20 @@ const ContactForm = props => {
               <CardHeader title="Organization" />
               <FormControl>
                 <InputLabel>Organization</InputLabel>
-                <Input
-                  type="text"
-                  placeholder="Organization"
-                  name="organization"
+                <NativeSelect
                   value={organization}
                   onChange={onChange}
-                  // className="mx-1"
-                />
+                  name="organization"
+                >
+                  <option value="" />
+
+                  <optgroup label="Organizations">
+                    <option value="AC">AC</option>
+                    <option value="DSCA">DSCA</option>
+                    <option value="EC">EC</option>
+                    <option value="MILDEP">MILDEP</option>
+                  </optgroup>
+                </NativeSelect>
               </FormControl>
             </Card>
           </Grid>
@@ -182,14 +188,18 @@ const ContactForm = props => {
               <CardHeader title="Employee Type" />
               <FormControl>
                 <InputLabel>Employee Type</InputLabel>
-                <Input
-                  type="text"
-                  placeholder="EmployeeType"
-                  // name="employeetype"
-                  // value={employeetype}
-                  // onChange={onChange}
-                  // className="mx-1"
-                />
+                <NativeSelect
+                  // value={organization}
+                  onChange={onChange}
+                  name="employeetype"
+                >
+                  <option value="" />
+                  <optgroup label="Employee Type">
+                    <option value="CONT">CONT</option>
+                    <option value="GS">GS</option>
+                    <option value="MILITARY">MILITARY</option>
+                  </optgroup>
+                </NativeSelect>
               </FormControl>
             </Card>
           </Grid>
@@ -198,18 +208,25 @@ const ContactForm = props => {
               <CardHeader title="System Role" />
               <FormControl>
                 <InputLabel>System Role</InputLabel>
-                <Input
-                  type="text"
-                  placeholder="SystemRole"
-                  name="systemrole"
+                <NativeSelect
                   value={systemrole}
                   onChange={onChange}
-                  // className="mx-1"
-                />
+                  name="systemrole"
+                >
+                  <option value="" />
+
+                  <optgroup label="System Role">
+                    <option value="Administrator">Administrator</option>
+                    <option value="Edit">Edit</option>
+                    <option value="Configure">Configure</option>
+                    <option value="View">View</option>
+                    <option value="No Access">No Access</option>
+                  </optgroup>
+                </NativeSelect>
               </FormControl>
             </Card>
           </Grid>
-          <Grid item xs={4}>
+          {/* <Grid item xs={4}>
             <Card className="add-user-card">
               <CardHeader title="Data Role" />
               <FormControl>
@@ -224,7 +241,7 @@ const ContactForm = props => {
                 />
               </FormControl>
             </Card>
-          </Grid>
+          </Grid> */}
         </Grid>
       </form>
     </div>
