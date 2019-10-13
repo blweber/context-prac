@@ -31,8 +31,9 @@ const SystemRoleName = () => {
         id="standard-search"
         label="New Role Name"
         type="search"
-        className={classes.textField}
-        margin="center"
+        className={classes.pos}
+        margin="none"
+        justify="center"
       />
     </Card>
   );

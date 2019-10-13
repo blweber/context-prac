@@ -45,8 +45,7 @@ const ContactTable = ({ contact }) => {
 
   return (
     <tr>
-      <th scope="row">{id}</th>
-      <td>{firstname}</td>
+      <th scope="row">{firstname}</th>
       <td>{lastname}</td>
       <td>{email}</td>
       <td>{organization}</td>
