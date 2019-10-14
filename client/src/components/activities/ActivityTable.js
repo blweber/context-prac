@@ -18,6 +18,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 import ActivitySearch from "./ActivitySearch";
 import StatusStepper from './StatusStepper';
+import FilterPopOver from "./FilterPopover";
 
 import ActivityContext from "../../context/activities/ActivityContext";
 import StatusContext from '../../context/status/StatusContext';
@@ -199,14 +200,33 @@ const ActivityTable = ({ activity }) => {
     const arrInfoMap = new Map(workflows.map(o => [o.legal_authority, o]))
     newRowsArr = rowsArr.map(o => ({ ...o, ...arrInfoMap.get(o.legal_authority) }))
     let testt = newRowsArr[0];
-    console.log('arr or obj', testt.statuses.constructor);
   }
 
+  //***********************//
+  //********FILTERS*******//
+  //***********************//
+
+  const uniqueLegalAuth = [...new Set(newRowsArr.map(item => item.legal_authority))];
+  console.log('unique ', uniqueLegalAuth);
+
 	return (
-		<Grid>
+    <Grid>
 			<Paper>
 				<h5 className={'act-header font-medium'}>Activities</h5>
-				<ActivitySearch/>
+        <Grid container>
+          <Grid item xs={12}>
+            <Grid container>
+              <Grid item xs={1}>
+				        <FilterPopOver 
+                  options={uniqueLegalAuth}
+                />
+              </Grid>
+              <Grid item xs={9}>
+                <ActivitySearch />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
 				<Table aria-labelledby="activitiesTable">
 					<EnhancedTableHead
 						order={order}
@@ -241,7 +261,7 @@ const ActivityTable = ({ activity }) => {
                       <ActivityActions/>
                     </TableRow>
                     <TableRow>
-                      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
+                      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                         <Collapse
                           in={expandIndex === index}
                           timeout="auto"
@@ -262,7 +282,7 @@ const ActivityTable = ({ activity }) => {
 					</TableBody>
 				</Table>
 			</Paper>
-		</Grid>
+    </Grid>
 	);
 };
  

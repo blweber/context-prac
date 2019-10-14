@@ -18,7 +18,7 @@ const Activities = () => {
             variant="extended"
             size="small"
             aria-label="save"
-            className={'add-user-btn'}
+            className={'create-act-btn'}
             style={{width: '200px', float: 'right'}} //TODO: remove inline styling
             type="button"
           >

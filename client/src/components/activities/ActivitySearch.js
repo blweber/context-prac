@@ -19,7 +19,7 @@ const ActivitySearch = () => {
 
   return (
     <Grid container spacing={3}>
-			<Grid item xs={10}>
+			<Grid item xs={5}>
 				<Icon>search</Icon>
 				<Input
 					type="text"
