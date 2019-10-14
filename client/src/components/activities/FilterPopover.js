@@ -20,6 +20,7 @@ const FilterPopover = (props) => {
   const activityContext = useContext(ActivityContext);
   const statusContext = useContext(StatusContext);
   
+  const options = props.options;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -32,7 +33,13 @@ const FilterPopover = (props) => {
 
   const open = Boolean(anchorEl);
 
-  const options = props.options;
+  const selectFilter = option => {
+    props.onFilterSelect(option);
+  }
+
+  // const handleChange = option => event => {
+  //   setState({ ...state, [option]: event.target.checked });
+  // };
 
   return (
     <Grid>
@@ -52,9 +59,11 @@ const FilterPopover = (props) => {
             <ListItem
               dense
               button
+              onClick={() => selectFilter(option)}
             >
               <Checkbox
                 checked={option.checked}
+                // onChange={handleChange(option)}
                 // tabIndex={-1}
                 disableRipple
                 // disabled={option.disabled}

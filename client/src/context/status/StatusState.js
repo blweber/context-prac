@@ -13,44 +13,44 @@ const StatusState = props => {
 				statuses: [
 					{
 						name: "Draft",
-						optional: true
+						optional: false
 					},
 					{
 						name: "Pending Reviewer Assignment",
-						optional: true
+						optional: false
 					},
 					{
 						name: "Concept Submitted",
 						optional: true
 					},
 					{
-						name: "Draft Proposal",
-						optional: true
-					},
-					{
-						name: "Proposal Submitted",
-						optional: true
-					},
-					{
-						name: "Proposal 0-6 Approved",
-						optional: true
-					},
-					{
-						name: "Costs Approved",
-						optional: true
-					},
-					{
 						name: "Congress Approved",
-						optional: true
-					},
-					{
-						name: "Activity",
-						optional: true
+						optional: false
 					},
 					{
 						name: "Activity Evaluation",
-						optional: true
+						optional: false
 					},
+					// {
+					// 	name: "Proposal 0-6 Approved",
+					// 	optional: true
+					// },
+					// {
+					// 	name: "Costs Approved",
+					// 	optional: true
+					// },
+					// {
+					// 	name: "Congress Approved",
+					// 	optional: true
+					// },
+					// {
+					// 	name: "Activity",
+					// 	optional: true
+					// },
+					// {
+					// 	name: "Activity Evaluation",
+					// 	optional: true
+					// },
 				]
       },
       {
@@ -59,15 +59,15 @@ const StatusState = props => {
 				statuses: [
 					{
 						name: "Draft",
-						optional: true
+						optional: false
 					},
 					{
 						name: "Pending Approval",
-						optional: true
+						optional: false
 					},
 					{
 						name: "Approved",
-            optional: true
+            optional: false
           }
 				]
       },

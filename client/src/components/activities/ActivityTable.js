@@ -9,8 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 // import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import { Collapse } from "@material-ui/core";
-
+import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Menu from "@material-ui/core/Menu";
@@ -32,15 +31,24 @@ const ActivityTable = ({ activity }) => {
 	
 	const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState(activities.wait_time);
+  const [filteredActivities, setFilteredActivities] = React.useState();
+
+  // Pull unique legal authorities from global state
+  const uniqueLegalAuth = [...new Set(activities.map(item => item.legal_authority))];
 
 	// Create new array with table row data, all or filtered
 	let rowsArr;
-	if(filtered) {
-		rowsArr = filtered.map(
+	if(filteredActivities) {
+		rowsArr = filteredActivities.map(
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
 		);
-	}else {
+	}else if(filtered){
+    rowsArr = filtered.map(
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
+			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
+		);
+  } else{
 		rowsArr = activities.map(
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
@@ -107,7 +115,7 @@ const ActivityTable = ({ activity }) => {
 						{headCells.map(headCell => (
 							<TableCell
 								key={headCell.id}
-								align={headCell.numeric ? 'right' : 'left'}
+								align={'left'}
 								padding={headCell.disablePadding ? 'none' : 'default'}
 								sorTableCellirection={orderBy === headCell.id ? order : false}
 							>
@@ -189,7 +197,6 @@ const ActivityTable = ({ activity }) => {
     }
     return expandIndex;
   }
-
   
   //STATUSES
   const statusContext = useContext(StatusContext);
@@ -199,19 +206,22 @@ const ActivityTable = ({ activity }) => {
   if(workflows){
     const arrInfoMap = new Map(workflows.map(o => [o.legal_authority, o]))
     newRowsArr = rowsArr.map(o => ({ ...o, ...arrInfoMap.get(o.legal_authority) }))
-    let testt = newRowsArr[0];
   }
 
   //***********************//
   //********FILTERS*******//
   //***********************//
 
-  const uniqueLegalAuth = [...new Set(newRowsArr.map(item => item.legal_authority))];
-  console.log('unique ', uniqueLegalAuth);
+  function handleSelectFilter(option) {
+    let filteredArr = newRowsArr.filter(activity => activity.legal_authority == option);
+    // console.log('filteredArr: ', filteredArr);
+    setFilteredActivities(filteredArr);
+  }
 
+  
 	return (
-    <Grid>
-			<Paper>
+    <Grid item xs={12}>
+			<Paper className={'act-paper'}>
 				<h5 className={'act-header font-medium'}>Activities</h5>
         <Grid container>
           <Grid item xs={12}>
@@ -219,6 +229,7 @@ const ActivityTable = ({ activity }) => {
               <Grid item xs={1}>
 				        <FilterPopOver 
                   options={uniqueLegalAuth}
+                  onFilterSelect={handleSelectFilter}
                 />
               </Grid>
               <Grid item xs={9}>
@@ -243,25 +254,23 @@ const ActivityTable = ({ activity }) => {
 								} else if (row.wait_time > 5 && row.wait_time < 8) {
 									var wtColor = 'wt-orange'; 
                 }
-                console.log('statuses', row.statuses);
 								return (
                   <Fragment>
                     <TableRow 
-                      hover 
-                      onClick={() => expandRow(row, index)} 
+                      hover  
                       className={`MuiTableRow-root ${wtColor}`}
                       style={{ cursor: "pointer"}}
                     >
-                      <TableCell>{row.activity_name}</TableCell>
-                      <TableCell>{row.legal_authority}</TableCell>
-                      <TableCell>{row.status}</TableCell>
-                      <TableCell>{row.wait_time}</TableCell>
-                      <TableCell>{row.partner_nation}</TableCell>
-                      <TableCell>{row.data_role}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.activity_name}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.legal_authority}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.status}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.wait_time}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.partner_nation}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.data_role}</TableCell>
                       <ActivityActions/>
                     </TableRow>
                     <TableRow>
-                      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
                         <Collapse
                           in={expandIndex === index}
                           timeout="auto"

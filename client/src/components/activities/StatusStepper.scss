@@ -1,0 +1,7 @@
+@import '../../styles/typography.scss';
+@import '../../styles/colors.scss';
+
+.MuiStepLabel-label.MuiStepLabel-active {
+  color: $blue;
+  font-weight: $font-medium;
+}

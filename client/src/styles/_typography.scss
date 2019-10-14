@@ -4,6 +4,13 @@
 // SASS VARIABLES
 $open-sans: 'Open Sans', sans-serif;
 $font-medium: 600;
+$font-bold: 800;
+
+// MUI OVERRIDES
+
+.MuiTypography-body2 {
+  font-family: $open-sans;
+}
 
 // TYPOGRAPHY CLASSES
 .font-light {

@@ -7,6 +7,9 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Grid from '@material-ui/core/Grid';
+import TablePagination from '@material-ui/core/TablePagination';
+
+import './StatusStepper.scss';
 
 const StatusStepper = (props) => {
 
@@ -14,25 +17,57 @@ const StatusStepper = (props) => {
   const activityContext = useContext(ActivityContext);
   const statusContext = useContext(StatusContext);
   
-let statusArr =[];
-let optionArr = [];
+  const [page, setPage] = React.useState(0);
+  // const [activeStatus, setActiveStatus] = React.useState(0);
+
+  let statusArr =[];
+  let optionArr = [];
   if(props.statuses) {
     statusArr = props.statuses.map(({ name }) => name);
     optionArr = props.statuses.map(({ optional }) => optional);
   }
-  console.log('name', statusArr);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  // const handleActiveStatus = () => {
+  //   // const activeStatus = statusArr.filter((s, index) => s.status == props.currentStatus);
+  //   // console.log('filteredArr: ', filteredArr);
+  //   // setActiveStatus(activeStatus);
+  // }
+
+  const activeStatus = statusArr.findIndex(status => status == props.currentStatus);
+  console.log('activeStatus ', activeStatus);
+
+  // const activeStatus = statusArr.filter(props.currentStatus);
+  // console.log('active status', activeStatus);
+  // console.log('props ', props.currentStatus);
 
   return (
     <Grid>
-      <Stepper>
-        {statusArr.map((label, index) => {
+      <Stepper activeStep={activeStatus}>
+        {statusArr.map((label) => {
           return (
             <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+              <StepLabel>{label}</StepLabel>        
             </Step>
           );
         })}
       </Stepper>
+      <TablePagination
+        // component="div"
+        count={statusArr.length}
+        rowsPerPage={[4]}
+        page={page}
+        backIconButtonProps={{
+          'aria-label': 'previous page',
+        }}
+        nextIconButtonProps={{
+          'aria-label': 'next page',
+        }}
+        onChangePage={handleChangePage}
+      />
     </Grid>
   );
 };

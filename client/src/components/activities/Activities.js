@@ -12,8 +12,8 @@ const Activities = () => {
 	const { activities } = activityContext;
     
 	return (
-      <Grid container>
-        <Grid item xs={12}>
+      <Grid container justify="center" alignItems="center">
+        <Grid item xs={12} className={'grid-margin'}>
           <Fab //TODO: Use Button component
             variant="extended"
             size="small"
@@ -31,7 +31,7 @@ const Activities = () => {
 			        <ActivityTable/>
             </Grid>
             <Grid item xs={2}>
-              <Card className={'nudge-card'}>Activity Name</Card>
+              <Card className={'nudge-card'}>Nudge Placeholder</Card>
             </Grid>
           </Grid>
         </Grid>
