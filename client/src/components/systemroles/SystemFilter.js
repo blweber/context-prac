@@ -5,7 +5,7 @@ import { Input, Icon } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import ReusableButton from "./../shared/ReusableButton";
 
-const SystemFilter = () => {
+const SystemFilter = props => {
   const contactContext = useContext(ContactContext); //app level state
 
   const { filterContacts, clearFilter } = contactContext;
@@ -27,12 +27,9 @@ const SystemFilter = () => {
         <Input type="text" placeholder="Search..." onChange={onChange} />
       </Grid>
       <Grid item xs={2}>
-        <ReusableButton color="primary" round>
-          <Link to="/CreateSystemRole">Create System Role</Link>
+        <ReusableButton href={props.href} color="primary" round>
+          Create System Role
         </ReusableButton>
-        {/* <Button variant="contained">
-          <Link to="/CreateSystemRole">Create System Role</Link>
-        </Button> */}
       </Grid>
     </Grid>
   );
