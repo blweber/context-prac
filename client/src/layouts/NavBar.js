@@ -13,12 +13,23 @@ const items = [
   {
     to: "/ContactForm",
     exact: true,
-    label: () => <h6>User Management > Contact Form</h6>
+    label: () => (
+      <div>
+        {" "}
+        <a href="/">User Management</a> / <a href="/ContactForm">Add User </a>{" "}
+      </div>
+    )
   },
   {
     to: "/CreateSystemRole",
     exact: true,
-    label: () => <h6>System Roles > Create System Role</h6>
+    label: () => (
+      <div>
+        {" "}
+        <a href="/systemroles">System Roles</a> /{" "}
+        <a href="/CreateSystemRole">Create System Role </a>{" "}
+      </div>
+    )
   }
 ];
 
