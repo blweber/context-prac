@@ -104,12 +104,12 @@ const SystemTable = () => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose}>Disable</MenuItem>
+                    <MenuItem onClick={handleClose}>Disable Role</MenuItem>
                     <MenuItem>
-                      <a href="/CreateSystemRole">Update</a>
+                      <a href="/CreateSystemRole">Edit Role</a>
                     </MenuItem>
                     <MenuItem>
-                      <a href="/!#">Delete</a>
+                      <a href="/!#">Remove Role</a>
                     </MenuItem>
                   </Menu>
                 </Grid>

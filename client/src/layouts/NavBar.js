@@ -9,7 +9,11 @@ import "./navBar.scss";
 const items = [
   { to: "/", exact: true, label: () => <h6>User Management</h6> },
   { to: "/Activities", exact: true, label: () => <h6>Activities</h6> },
-  { to: "/systemroles", exact: true, label: () => <h6>System Roles</h6> },
+  {
+    to: "/systemroles",
+    exact: true,
+    label: () => <h6>Manage System Roles</h6>
+  },
   {
     to: "/ContactForm",
     exact: true,
@@ -26,7 +30,7 @@ const items = [
     label: () => (
       <div>
         {" "}
-        <a href="/systemroles">System Roles</a> /{" "}
+        <a href="/systemroles">Manage System Roles</a> /{" "}
         <a href="/CreateSystemRole">Create System Role </a>{" "}
       </div>
     )
