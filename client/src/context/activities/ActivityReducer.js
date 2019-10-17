@@ -31,7 +31,11 @@ import {
 					filtered: state.activities.filter(activity => {
 						const regex = new RegExp(`${action.payload}`, "gi");
 						return (
-							activity.activity_name.match(regex) || activity.legal_authority.match(regex)
+              activity.activity_name.match(regex) 
+              || activity.legal_authority.match(regex)
+              || activity.partner_nation.match(regex)
+              || activity.data_role.match(regex)
+              || activity.status.match(regex)
 						);
 					})
 				};

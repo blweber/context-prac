@@ -208,16 +208,6 @@ const ActivityTable = ({ activity }) => {
     newRowsArr = rowsArr.map(o => ({ ...o, ...arrInfoMap.get(o.legal_authority) }))
   }
 
-  //***********************//
-  //********FILTERS*******//
-  //***********************//
-
-  function handleSelectFilter(option) {
-    let filteredArr = newRowsArr.filter(activity => activity.legal_authority == option);
-    // console.log('filteredArr: ', filteredArr);
-    setFilteredActivities(filteredArr);
-  }
-
   
 	return (
     <Grid item xs={12}>
@@ -226,12 +216,6 @@ const ActivityTable = ({ activity }) => {
         <Grid container>
           <Grid item xs={12}>
             <Grid container>
-              <Grid item xs={1}>
-				        <FilterPopOver 
-                  options={uniqueLegalAuth}
-                  onFilterSelect={handleSelectFilter}
-                />
-              </Grid>
               <Grid item xs={9}>
                 <ActivitySearch />
               </Grid>

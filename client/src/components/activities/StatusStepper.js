@@ -38,11 +38,6 @@ const StatusStepper = (props) => {
   // }
 
   const activeStatus = statusArr.findIndex(status => status == props.currentStatus);
-  console.log('activeStatus ', activeStatus);
-
-  // const activeStatus = statusArr.filter(props.currentStatus);
-  // console.log('active status', activeStatus);
-  // console.log('props ', props.currentStatus);
 
   return (
     <Grid>
@@ -55,19 +50,6 @@ const StatusStepper = (props) => {
           );
         })}
       </Stepper>
-      <TablePagination
-        // component="div"
-        count={statusArr.length}
-        rowsPerPage={[4]}
-        page={page}
-        backIconButtonProps={{
-          'aria-label': 'previous page',
-        }}
-        nextIconButtonProps={{
-          'aria-label': 'next page',
-        }}
-        onChangePage={handleChangePage}
-      />
     </Grid>
   );
 };
