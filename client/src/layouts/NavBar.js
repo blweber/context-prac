@@ -9,16 +9,31 @@ import "./navBar.scss";
 const items = [
   { to: "/", exact: true, label: () => <h6>User Management</h6> },
   { to: "/Activities", exact: true, label: () => <h6>Activities</h6> },
-  { to: "/systemroles", exact: true, label: () => <h6>System Roles</h6> },
+  {
+    to: "/systemroles",
+    exact: true,
+    label: () => <h6>Manage System Roles</h6>
+  },
   {
     to: "/ContactForm",
     exact: true,
-    label: () => <h6>User Management > Contact Form</h6>
+    label: () => (
+      <div>
+        {" "}
+        <a href="/">User Management</a> / <a href="/ContactForm">Add User </a>{" "}
+      </div>
+    )
   },
   {
     to: "/CreateSystemRole",
     exact: true,
-    label: () => <h6>System Roles > Create System Role</h6>
+    label: () => (
+      <div>
+        {" "}
+        <a href="/systemroles">Manage System Roles</a> /{" "}
+        <a href="/CreateSystemRole">Create System Role </a>{" "}
+      </div>
+    )
   }
 ];
 

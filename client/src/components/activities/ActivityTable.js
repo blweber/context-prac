@@ -38,12 +38,7 @@ const ActivityTable = ({ activity }) => {
 
 	// Create new array with table row data, all or filtered
 	let rowsArr;
-	if(filteredActivities) {
-		rowsArr = filteredActivities.map(
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
-		);
-	}else if(filtered){
+	if(filtered){
     rowsArr = filtered.map(
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
 			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
@@ -216,6 +211,8 @@ const ActivityTable = ({ activity }) => {
         <Grid container>
           <Grid item xs={12}>
             <Grid container>
+              <Grid item xs={1}>
+              </Grid>
               <Grid item xs={9}>
                 <ActivitySearch />
               </Grid>
