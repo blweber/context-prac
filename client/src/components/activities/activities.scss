@@ -3,11 +3,17 @@
 
 .nudge-card {
   min-height: 10rem;
+  font-weight: $font-bold;
 }
 
-a.create-act-btn{
+button.create-act-btn{
     min-width: 180px;
     background: $blue;
     color: $white;
     box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2);
+    text-transform: capitalize;
+}
+
+.grid-margin {
+  margin-bottom: 20px;
 }

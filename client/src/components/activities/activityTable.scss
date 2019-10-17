@@ -1,17 +1,9 @@
 @import '../../styles/typography.scss';
 @import '../../styles/colors.scss';
 
-// .visually-hidden {
-//     border: 0;
-//     clip: rect(0 0 0 0);
-//     height: 1;
-//     margin: -1;
-//     overflow: 'hidden';
-//     padding: 0;
-//     position: 'absolute';
-//     top: 20;
-//     width: 1;
-// }
+.MuiTableCell-root {
+  font-family: $open-sans;
+}
 
 .wt-red {
     background: #FFB9B9;
@@ -25,12 +17,17 @@
     padding: 1rem;
 }
 
+.act-paper{
+  overflow-x: scroll;
+}
+
 .MuiTableRow-head{
     background: $navy;
 }
 
 .MuiTableSortLabel-root{
     color: $white;
+    font-size: 0.875rem;
     &:hover{
         color: $grey-light;
     }
