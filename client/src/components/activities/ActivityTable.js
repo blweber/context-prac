@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useEffect } from "react";
 
 import Grid from "@material-ui/core/Grid";
 import Paper from '@material-ui/core/Paper';
@@ -27,26 +27,36 @@ import './activityTable.scss';
 const ActivityTable = ({ activity }) => {
 	// Subscribe to Activities state
 	const activityContext = useContext(ActivityContext);
-	const { activities, filtered } = activityContext;
-	
+  const { activities, filtered, getActivities } = activityContext;
+  	
 	const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState(activities.wait_time);
   const [filteredActivities, setFilteredActivities] = React.useState();
 
+  // Get activity data on mount
+  useEffect(() => {
+      try {
+        getActivities()
+      } catch(err) {
+        console.log('ERROR DUDE!');
+      }
+
+  }, []);
+
   // Pull unique legal authorities from global state
-  const uniqueLegalAuth = [...new Set(activities.map(item => item.legal_authority))];
+  // const uniqueLegalAuth = [...new Set(activities.map(item => item.legal_authority))];
 
 	// Create new array with table row data, all or filtered
 	let rowsArr;
 	if(filtered){
     rowsArr = filtered.map(
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
+			({ activity_title, legal_authority, data_role, status, wait_time, partner_nation }) => 
+			({ activity_title, legal_authority, data_role, status, wait_time, partner_nation })
 		);
   } else{
 		rowsArr = activities.map(
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation }) => 
-			({ activity_name, legal_authority, data_role, status, wait_time, partner_nation })
+			({ activity_title, legal_authority, data_role, status, wait_time, partner_nation }) => 
+			({ activity_title, legal_authority, data_role, status, wait_time, partner_nation })
 		);
   }
 
@@ -242,7 +252,7 @@ const ActivityTable = ({ activity }) => {
                       className={`MuiTableRow-root ${wtColor}`}
                       style={{ cursor: "pointer"}}
                     >
-                      <TableCell onClick={() => expandRow(row, index)}>{row.activity_name}</TableCell>
+                      <TableCell onClick={() => expandRow(row, index)}>{row.activity_title}</TableCell>
                       <TableCell onClick={() => expandRow(row, index)}>{row.legal_authority}</TableCell>
                       <TableCell onClick={() => expandRow(row, index)}>{row.status}</TableCell>
                       <TableCell onClick={() => expandRow(row, index)}>{row.wait_time}</TableCell>

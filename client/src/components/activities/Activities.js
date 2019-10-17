@@ -13,7 +13,7 @@ const Activities = () => {
 	return (
       <Grid container justify="center" alignItems="center">
         <Grid item xs={12} className={'grid-margin'}>
-          <ReusableButton round="True" color="primary" style={{ float: "right" }}>
+          <ReusableButton href="/CreateActivity" round="True" color="primary" style={{ float: "right" }}>
             Create New Activity
           </ReusableButton>
         </Grid>

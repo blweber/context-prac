@@ -1,8 +1,13 @@
 import React, { useReducer } from 'react';
+
 import ActivityContext from './ActivityContext';
 import ActivityReducer from './ActivityReducer';
+
+import axios from 'axios';
 import uuid from "uuid";
-import { 
+
+import {
+    GET_ACTIVITIES,
     ADD_ACTIVITY, 
     DELETE_ACTIVITY, 
     SET_CURRENT_ACTIVITY,
@@ -176,23 +181,32 @@ const ActivityState = props => {
             }
         ],
 				current: null,
-				filtered: null,
+        filtered: null,
+        isLoading: false,
+        isError: false,
     };
 
     // The dispatch function sends an action to the reducer 
     // which would implicitly change the current state
     const [state, dispatch] = useReducer(ActivityReducer, initialState);
 
-    //Custom hooks that contain state, dispatcher, and actions
+    //Custom hooks that get/contain state, dispatcher, and actions
+    const getActivities = async () => {
+      try {
+        const res = await axios.get("http://api.onetwoparsecs.com:5000/activities/");
+        dispatch({ type: GET_ACTIVITIES, payload: res.data.data });
+        console.log('res from context', res.data.data);
+      } catch(err) {
+        console.log('ERROR DUDE 2!');
+      }
+    }
     const addActivity = (activity) => {
         activity.id = uuid.v4();
         dispatch({ type: ADD_ACTIVITY, payload: activity });
-    };
-
+    }
     const deleteActivity = id => {
         dispatch({ type: DELETE_ACTIVITY, payload: id });
     };
-    
     const setCurrentActivity = activity => {
         dispatch({ type: SET_CURRENT_ACTIVITY, payload: activity });
     };
@@ -208,7 +222,8 @@ const ActivityState = props => {
 				value={{
 					activities: state.activities,
 					current: state.current,
-					filtered: state.filtered,
+          filtered: state.filtered,
+          getActivities,
 					addActivity, 
 					deleteActivity,
 					setCurrentActivity,

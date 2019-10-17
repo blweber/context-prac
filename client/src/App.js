@@ -17,6 +17,7 @@ import ActivityState from "./context/activities/ActivityState";
 import SystemRoles from "./pages/SystemRoles";
 import CreateSystemRole from "./pages/CreateSystemRole";
 import Activities from "./components/activities/Activities";
+import CreateActivity from "./components/activities/CreateActivity";
 
 import "./App.scss";
 
@@ -44,6 +45,7 @@ const App = () => {
                         <Route exact path="/Login" component={Login} />
                         <Route exact path="/Register" component={Register} />
                         <Route exact path="/Activities" component={Activities} />
+                        <Route exact path="/CreateActivity" component={CreateActivity} />
                         <Route path="/" component={PageNotFound} />
                       </Switch>
                     </div>

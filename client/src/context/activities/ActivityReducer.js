@@ -1,4 +1,5 @@
-import { 
+import {
+  GET_ACTIVITIES, 
 	ADD_ACTIVITY, 
 	DELETE_ACTIVITY, 
 	SET_CURRENT_ACTIVITY, 
@@ -8,6 +9,12 @@ import {
   
   export default (state, action) => {
     switch (action.type) {
+      case GET_ACTIVITIES:
+        return {
+          ...state,
+          activities: action.payload,
+          isLoading: false
+        };
       case ADD_ACTIVITY:
         return {
           ...state,
